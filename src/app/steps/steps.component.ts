@@ -23,9 +23,6 @@ export class StepsComponent implements OnInit {
   @Input() keyPoints: StepPoint[] = [];
   @Input() extraPoints: StepPoint[] = [];
 
-  @Input() keyPonitTemplate: TemplateRef<any> = null;
-  @Input() extraPonitTemplate: TemplateRef<any> = null;
-
   constructor() {}
 
   ngOnInit() {}
