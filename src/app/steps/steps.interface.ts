@@ -7,4 +7,5 @@ export interface StepPoint {
   background?: string;
   contentColor?: string;
   contentBackground?: string;
+  hiddenContent?: boolean;
 }

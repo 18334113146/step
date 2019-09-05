@@ -8,11 +8,9 @@ import { StepPoint } from "./steps/steps.interface";
 })
 export class AppComponent implements OnInit, AfterViewInit {
   activeBackground = "red";
+  activeWidth = "0%";
 
-  activePoint: StepPoint = {
-    index: "0%",
-    title: "全链路剩余时效：2天"
-  };
+  activePoint: StepPoint = null;
 
   keyPoints: StepPoint[] = [
     {
@@ -53,6 +51,13 @@ export class AppComponent implements OnInit, AfterViewInit {
       index: "62%",
       title: "干线到达时间",
       description: "2019/08/02 12:00"
+    },
+    {
+      index: "92%",
+      title: "全链路超时：10小时",
+      description: "签收时间：2019/08/08 10:00",
+      contentBackground: "red",
+      contentColor: "white"
     }
   ];
 
@@ -60,7 +65,7 @@ export class AppComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
     setTimeout(() => {
-      this.activePoint.index = "75%";
+      this.activeWidth = "92%";
     }, 200);
   }
 

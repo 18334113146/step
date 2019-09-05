@@ -8,6 +8,7 @@ import { StepPoint } from "./steps.interface";
 })
 export class StepsComponent implements OnInit {
   @Input() activeBackground = "#1ECB8E";
+  @Input() activeWidth = "0%";
   @Input() inactiveBackground = "#EAF0F0";
 
   @Input() activePointColor = "#1ECB8E";

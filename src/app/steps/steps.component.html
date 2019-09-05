@@ -1,55 +1,64 @@
 <div class="p-steps-bars-wrap">
   <div
     class="p-steps-reach-bar"
-    [ngStyle]="{ background: activeBackground, width: activePoint.index }"
+    [ngStyle]="{ background: activeBackground, width: activeWidth }"
   ></div>
   <div
     class="p-steps-unreach-bar"
     [ngStyle]="{ background: inactiveBackground }"
   ></div>
+  <!-- 背景 -->
+  <div
+    class="p-steps-background"
+    [style.backgroundImage]="'url(/assets/total-links/background.png)'"
+  ></div>
   <!-- 活动点 -->
-  <div
-    class="p-steps-active-point-default"
-    [ngStyle]="{ left: activePoint.index, color: activePointColor }"
-  >
-    <svg
-      t="1567506209494"
-      class="icon"
-      viewBox="0 0 1024 1024"
-      version="1.1"
-      xmlns="http://www.w3.org/2000/svg"
-      p-id="4420"
-      width="1em"
-      height="1em"
-      fill="currentcolor"
-    >
-      <path
-        d="M368 755.008q0 32.992-23.488 56.512T288 835.008t-56.512-23.488T208 755.008q0-16 6.496-30.496t16.992-25.504 25.504-16.992T288 676q32.992 0 56.512 23.008t23.488 56z m482.016 0q0 32.992-23.488 56.512t-56.512 23.488q-8.992 0-18.016-2.016t-16.512-6.016-14.496-9.504-12.512-12.512-9.504-14.496-6.016-16.512-2.016-19.008q0-32.992 23.008-56t56-23.008q22.016 0 40.512 10.496t28.992 28.992 10.496 39.488z m84-292.992l-76.992-103.008q-2.016-0.992-4-4l-11.008-12q-3.008-4-8.992-8.992t-12.992-7.008-15.008-2.016H650.016q-14.016 0-24.512 10.016t-10.496 24V704q0 14.016 10.016 24t24.992 10.016q4-28.992 20.992-52.992t43.008-38.016 56-14.016q46.016 0 80.512 30.016t40.512 75.008h35.008q14.016 0 24-10.016t10.016-24V531.008q0-6.016-1.504-13.504T954.048 504l-4-14.016q-3.008-6.016-6.016-11.008t-4.992-8.992-4-6.016z m-215.008 68.992V394.016h84q3.008 0 6.016 2.016t4.992 4l2.016 2.016 72.992 100q3.008 4 4.992 7.488t4 7.488 3.008 7.488 0.992 6.496H719.008z m-172.992-344h-448q-14.016 0-24 10.016t-10.016 24v483.008q0 14.016 10.016 24t24 10.016h68.992q7.008-44.992 40.992-75.008t80-30.016 80 30.016 40.992 75.008h136.992q7.008 0 13.504-2.496t11.008-7.488 7.488-11.008 3.008-12.992V221.056q0-7.008-3.008-12.992t-7.488-11.008-11.008-7.488-13.504-2.496z"
-        p-id="4421"
-      ></path>
-    </svg>
-  </div>
-  <div
-    class="p-steps-active-point-content"
-    [ngStyle]="{
-      left: activePoint.index,
-      background: activePointContentBackground,
-      color: activePointContentBackground
-    }"
-  >
+  <ng-container *ngIf="activePoint">
     <div
-      class="p-steps-active-point-title"
-      [ngStyle]="{ color: activePointContentColor }"
+      class="p-steps-active-point-default"
+      [ngStyle]="{ left: activePoint.index, color: activePointColor }"
+      (click)="activePoint.hiddenContent = !activePoint.hiddenContent"
     >
-      {{ activePoint.title }}
+      <svg
+        t="1567506209494"
+        class="icon"
+        viewBox="0 0 1024 1024"
+        version="1.1"
+        xmlns="http://www.w3.org/2000/svg"
+        p-id="4420"
+        width="1em"
+        height="1em"
+        fill="currentcolor"
+      >
+        <path
+          d="M368 755.008q0 32.992-23.488 56.512T288 835.008t-56.512-23.488T208 755.008q0-16 6.496-30.496t16.992-25.504 25.504-16.992T288 676q32.992 0 56.512 23.008t23.488 56z m482.016 0q0 32.992-23.488 56.512t-56.512 23.488q-8.992 0-18.016-2.016t-16.512-6.016-14.496-9.504-12.512-12.512-9.504-14.496-6.016-16.512-2.016-19.008q0-32.992 23.008-56t56-23.008q22.016 0 40.512 10.496t28.992 28.992 10.496 39.488z m84-292.992l-76.992-103.008q-2.016-0.992-4-4l-11.008-12q-3.008-4-8.992-8.992t-12.992-7.008-15.008-2.016H650.016q-14.016 0-24.512 10.016t-10.496 24V704q0 14.016 10.016 24t24.992 10.016q4-28.992 20.992-52.992t43.008-38.016 56-14.016q46.016 0 80.512 30.016t40.512 75.008h35.008q14.016 0 24-10.016t10.016-24V531.008q0-6.016-1.504-13.504T954.048 504l-4-14.016q-3.008-6.016-6.016-11.008t-4.992-8.992-4-6.016z m-215.008 68.992V394.016h84q3.008 0 6.016 2.016t4.992 4l2.016 2.016 72.992 100q3.008 4 4.992 7.488t4 7.488 3.008 7.488 0.992 6.496H719.008z m-172.992-344h-448q-14.016 0-24 10.016t-10.016 24v483.008q0 14.016 10.016 24t24 10.016h68.992q7.008-44.992 40.992-75.008t80-30.016 80 30.016 40.992 75.008h136.992q7.008 0 13.504-2.496t11.008-7.488 7.488-11.008 3.008-12.992V221.056q0-7.008-3.008-12.992t-7.488-11.008-11.008-7.488-13.504-2.496z"
+          p-id="4421"
+        ></path>
+      </svg>
     </div>
     <div
-      class="p-steps-active-point-description"
-      [ngStyle]="{ color: activePointContentColor }"
+      class="p-steps-active-point-content"
+      [hidden]="activePoint.hiddenContent"
+      [ngStyle]="{
+        left: activePoint.index,
+        background: activePointContentBackground,
+        color: activePointContentBackground
+      }"
     >
-      {{ activePoint.description }}
+      <div
+        class="p-steps-active-point-title"
+        [ngStyle]="{ color: activePointContentColor }"
+      >
+        {{ activePoint.title }}
+      </div>
+      <div
+        class="p-steps-active-point-description"
+        [ngStyle]="{ color: activePointContentColor }"
+      >
+        {{ activePoint.description }}
+      </div>
     </div>
-  </div>
+  </ng-container>
   <!-- 关键点 -->
   <ng-container *ngFor="let point of keyPoints">
     <div class="p-steps-key-point" [ngStyle]="{ left: point.index }">
@@ -70,7 +79,7 @@
     <div
       class="p-steps-extra-point"
       [ngStyle]="{ left: point.index }"
-      (click)="point.zIndex = point.zIndex ? point.zIndex + 1 : 1"
+      (click)="point.hiddenContent = !point.hiddenContent"
     >
       <div class="p-steps-extra-point-default">
         <svg
@@ -93,13 +102,13 @@
     </div>
     <div
       class="p-steps-extra-point-content"
+      [hidden]="point.hiddenContent"
       [ngStyle]="{
         left: point.index,
         background: point.contentBackground,
         color: point.contentBackground,
         'z-index': point.zIndex
       }"
-      (click)="point.zIndex = point.zIndex ? point.zIndex + 1 : 1"
     >
       <div
         *ngIf="point.title"
