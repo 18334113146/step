@@ -10,6 +10,7 @@ export class StepsComponent implements OnInit {
   @Input() activeBackground = "#1ECB8E";
   @Input() activeWidth = "0%";
   @Input() inactiveBackground = "#EAF0F0";
+  @Input() backgroundImage = "url(/assets/total-links/background.png)";
 
   @Input() activePointColor = "#1ECB8E";
   @Input() activePointContentColor = "white";
