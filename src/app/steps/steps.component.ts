@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, TemplateRef } from "@angular/core";
+import { Component, OnInit, Input } from "@angular/core";
 import { StepPoint } from "./steps.interface";
 
 @Component({
@@ -13,23 +13,21 @@ export class StepsComponent implements OnInit {
   @Input() backgroundImage = "url(/assets/total-links/background.png)";
 
   @Input() activePointColor = "#1ECB8E";
-  @Input() activePointContentColor = "white";
+  @Input() activePointContentColor = "#FFFFFF";
   @Input() activePointContentBackground = "#1ECB8E";
+  @Input() activePoint: StepPoint = null;
 
-  @Input() activePoint: StepPoint = {
-    index: "",
-    title: "",
-    description: ""
-  };
-
+  @Input() keyPointColor = "#1ECB8E";
+  @Input() keyPointContentColor = "#999999";
+  @Input() keyPointContentBackground = "transparent";
   @Input() keyPoints: StepPoint[] = [];
+
+  @Input() extraPointColor = "#F5A623";
+  @Input() extraPointContentColor = "#333333";
+  @Input() extraPointContentBackground = "#FFFFFF";
   @Input() extraPoints: StepPoint[] = [];
 
   constructor() {}
 
   ngOnInit() {}
-
-  mouseover() {
-    console.log(111);
-  }
 }

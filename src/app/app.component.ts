@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit } from "@angular/core";
+import { Component, OnInit, AfterViewInit, ViewChild } from "@angular/core";
 import { StepPoint } from "./steps/steps.interface";
 
 @Component({
@@ -7,7 +7,6 @@ import { StepPoint } from "./steps/steps.interface";
   styleUrls: ["./app.component.less"]
 })
 export class AppComponent implements OnInit, AfterViewInit {
-  activeBackground = "red";
   activeWidth = "0%";
 
   activePoint: StepPoint = {
@@ -19,7 +18,6 @@ export class AppComponent implements OnInit, AfterViewInit {
     {
       index: "0%",
       title: "开单时间",
-      color: "red",
       description: "2019/08/02 12:00"
     },
     {
@@ -48,14 +46,14 @@ export class AppComponent implements OnInit, AfterViewInit {
     {
       index: "60%",
       title: "枢纽发车时间",
-      extraTitle: "（已超14小时） ",
+      subTitle: "（已超14小时）",
       description: "2019/08/02 12:00"
     },
     {
       index: "62%",
       title: "干线到达时间",
       description: "2019/08/02 12:00"
-    },
+    }
     // {
     //   index: "92%",
     //   title: "全链路超时：10小时",

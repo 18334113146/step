@@ -1,7 +1,7 @@
 export interface StepPoint {
   index: string;
   title: string;
-  extraTitle?: string;
+  subTitle?: string;
   description?: string;
   color?: string;
   background?: string;
