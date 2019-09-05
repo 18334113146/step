@@ -52,7 +52,7 @@ export class AppComponent implements OnInit, AfterViewInit {
     {
       index: "62%",
       title: "干线到达时间",
-      description: "2019/08/02 12:00"
+      description: "2019/08/02 12:00",
     }
     // {
     //   index: "92%",
@@ -67,8 +67,8 @@ export class AppComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
     setTimeout(() => {
-      this.activeWidth = "92%";
-      this.activePoint.index = "92%";
+      this.activeWidth = "63%";
+      this.activePoint.index = "63%";
     }, 200);
   }
 
